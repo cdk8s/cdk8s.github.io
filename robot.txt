@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /font-awesome
+Disallow: /css
+Disallow: /img
+Disallow: /js
+Sitemap: http://cdk8s.com/sitemap.xml
+Sitemap: http://cdk8s.com/baidusitemap.xml
