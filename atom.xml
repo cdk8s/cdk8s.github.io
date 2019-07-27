@@ -5,9 +5,9 @@
   <subtitle>专注于中小企业下持续交付</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://cdk8s.com/"/>
+  <link href="https://cdk8s.github.io/"/>
   <updated>2019-07-27T12:31:06.000Z</updated>
-  <id>http://cdk8s.com/</id>
+  <id>https://cdk8s.github.io/</id>
   
   <author>
     <name>CDK8S</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>CDK8S-Hello</title>
-    <link href="http://cdk8s.com/2018/08/08/hello-world/"/>
-    <id>http://cdk8s.com/2018/08/08/hello-world/</id>
+    <link href="https://cdk8s.github.io/2018/08/08/hello-world/"/>
+    <id>https://cdk8s.github.io/2018/08/08/hello-world/</id>
     <published>2018-08-08T00:08:08.000Z</published>
     <updated>2019-07-27T12:31:06.000Z</updated>
     
@@ -35,7 +35,7 @@
     </summary>
     
     
-      <category term="thistag" scheme="http://cdk8s.com/tags/thistag/"/>
+      <category term="thistag" scheme="https://cdk8s.github.io/tags/thistag/"/>
     
   </entry>
   
