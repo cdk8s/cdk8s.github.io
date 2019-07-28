@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cdk8s.github.io/"/>
-  <updated>2019-07-27T13:35:26.000Z</updated>
+  <updated>2019-07-28T01:19:45.000Z</updated>
   <id>https://cdk8s.github.io/</id>
   
   <author>
@@ -21,23 +21,29 @@
     <link href="https://cdk8s.github.io/2019/07/27/new-world/"/>
     <id>https://cdk8s.github.io/2019/07/27/new-world/</id>
     <published>2019-07-27T15:32:56.000Z</published>
-    <updated>2019-07-27T13:35:26.000Z</updated>
+    <updated>2019-07-28T01:19:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p>人生，新的旅程</p><h2 id="关注下"><a href="#关注下" class="headerlink" title="关注下"></a>关注下</h2><ul><li><a href="https://github.com/cdk8s" target="_blank" rel="noopener">https://github.com/cdk8s</a></li><li><a href="https://gitee.com/cdk8s" target="_blank" rel="noopener">https://gitee.com/cdk8s</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>人生，新的旅程</p><h2 id="关注动态"><a href="#关注动态" class="headerlink" title="关注动态"></a>关注动态</h2><ul><li><a href="https://github.com/cdk8s" target="_blank" rel="noopener">https://github.com/cdk8s</a></li><li><a href="https://gitee.com/cdk8s" target="_blank" rel="noopener">https://gitee.com/cdk8s</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;人生，新的旅程&lt;/p&gt;
-&lt;h2 id=&quot;关注下&quot;&gt;&lt;a href=&quot;#关注下&quot; class=&quot;headerlink&quot; title=&quot;关注下&quot;&gt;&lt;/a&gt;关注下&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/cdk8s&quot; target=&quot;_b
+&lt;h2 id=&quot;关注动态&quot;&gt;&lt;a href=&quot;#关注动态&quot; class=&quot;headerlink&quot; title=&quot;关注动态&quot;&gt;&lt;/a&gt;关注动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cdk8s&quot; target
       
     
     </summary>
     
+      <category term="CDK8S" scheme="https://cdk8s.github.io/categories/CDK8S/"/>
     
-      <category term="cdk8s" scheme="https://cdk8s.github.io/tags/cdk8s/"/>
+      <category term="IntelliJ IDEA" scheme="https://cdk8s.github.io/categories/CDK8S/IntelliJ-IDEA/"/>
+    
+    
+      <category term="CDK8S" scheme="https://cdk8s.github.io/tags/CDK8S/"/>
+    
+      <category term="IntelliJ IDEA" scheme="https://cdk8s.github.io/tags/IntelliJ-IDEA/"/>
     
   </entry>
   
