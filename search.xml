@@ -4,18 +4,18 @@
   
     
     <entry>
-      <title>CDK8S 介绍</title>
-      <link href="/2019/07/27/new-world/"/>
-      <url>/2019/07/27/new-world/</url>
+      <title>程序员的专属微信公众号编辑器：定制 Markdown 转 HTML</title>
+      <link href="/2019/08/19/new-world/"/>
+      <url>/2019/08/19/new-world/</url>
       
-        <content type="html"><![CDATA[<p>人生，新的旅程</p><h2 id="关注动态"><a href="#关注动态" class="headerlink" title="关注动态"></a>关注动态</h2><ul><li><a href="https://github.com/cdk8s" target="_blank" rel="noopener">https://github.com/cdk8s</a></li><li><a href="https://gitee.com/cdk8s" target="_blank" rel="noopener">https://gitee.com/cdk8s</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="效果（Gif）"><a href="#效果（Gif）" class="headerlink" title="效果（Gif）"></a>效果（Gif）</h2><ul><li><a href="http://img.gitnavi.com/markdown/cdk8s-markdown-to-html-demo.gif" target="_blank" rel="noopener">点击我查看</a></li></ul><h2 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h2><ul><li><a href="https://github.com/cdk8s/cdk8s-markdown-to-html" target="_blank" rel="noopener">https://github.com/cdk8s/cdk8s-markdown-to-html</a></li><li><a href="https://gitee.com/cdk8s/cdk8s-markdown-to-html" target="_blank" rel="noopener">https://gitee.com/cdk8s/cdk8s-markdown-to-html</a></li></ul><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在程序员的世界里，只要习惯用 Git，写文章必然就是 Markdown 了。</p><p>近来几天，重新玩起了微信公众号，最不能忍受的就是那个编辑器，效率很低。虽然微信现在已经提供了模板功能，但是对于喜欢多平台发文的程序员来讲，维护多个内容成本过高。</p><h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>了解了目前市场上主流的编辑器：</p><ul><li><a href="https://www.135editor.com/" target="_blank" rel="noopener">135 编辑器</a></li><li><a href="https://yiban.io/?utm=bianjiqihaoyong" target="_blank" rel="noopener">壹伴</a></li><li><a href="https://xiumi.us/#/" target="_blank" rel="noopener">秀米</a></li><li><a href="http://www.xmyeditor.com/" target="_blank" rel="noopener">小蚂蚁</a></li></ul><p>结论是：都不是我想要的。</p><p>这几个编辑器都是偏向推广玩法的类型，过于花俏。好一点的模板也基本都是收费的，所以只能放弃。</p><h2 id="转变"><a href="#转变" class="headerlink" title="转变"></a>转变</h2><p>经过 Google 几下，发现微信编辑器是可以直接复制 HTML 代码块，这就给我们提供了更多可能。</p><p>既然常规主流的玩法无法满足需求，那我就换了一个思路：<code>继续 Markdown 书写，然后借用转换器转换</code></p><p>我开始换关键字搜索：<code>React markdown 组件</code></p><h2 id="运气"><a href="#运气" class="headerlink" title="运气"></a>运气</h2><p>在搜索的过程中我偶然遇到了：<a href="https://github.com/zhning12/markdown-nice" target="_blank" rel="noopener">markdown-nice</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">简介</span><br><span class="line">支持自定义样式的 Markdown 编辑器</span><br><span class="line">支持微信公众号排版</span><br><span class="line">支持知乎、稀土掘金、博客园和CSDN等一系列平台</span><br><span class="line">内容和自定义样式浏览器中实时保存</span><br><span class="line">可在工具中提交自定义主题</span><br><span class="line">支持上传图片、脚注、公式</span><br></pre></td></tr></table></figure><p>因为用了 antd，所以看起来非常简洁，但是也因此非常庞大，但是这一点能接受。</p><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>研究了作者提供了几个主题，发现彼此审美上有偏差，自己实在忍受不了，所以就 fork 了一份，开始大面积调整。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">添加了一个 CDK8S 主题</span><br><span class="line">调整默认主题为 CDK8S</span><br><span class="line">调整默认配色为 atomOneLight</span><br><span class="line">添加开关 `IS_STYLE_READ_CACHE_OPEN` 默认主题从 localstorage 读取</span><br><span class="line">修改图床上传接口，改为私有服务的 API</span><br><span class="line">去掉第一次加载弹出的更新弹窗</span><br></pre></td></tr></table></figure><p>因为 CDK8S 这个关键字是唯一的，所以大家可以参考我的方式，自己定制自己的需求。</p><h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><ul><li>感谢 zhning12 童鞋</li><li>感谢 <a href="https://github.com/zhning12/markdown-nice" target="_blank" rel="noopener">markdown-nice</a></li></ul>]]></content>
       
       
       <categories>
           
           <category> CDK8S </category>
           
-          <category> IntelliJ IDEA </category>
+          <category> Markdown </category>
           
       </categories>
       
@@ -24,7 +24,7 @@
             
             <tag> CDK8S </tag>
             
-            <tag> IntelliJ IDEA </tag>
+            <tag> Markdown </tag>
             
         </tags>
       
