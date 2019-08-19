@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>CDK8S</title>
   <icon>https://www.gravatar.com/avatar/01d28e4260e21ded66c97f15ff55a4ee</icon>
-  <subtitle>专注于中小企业下持续交付</subtitle>
+  <subtitle>专注互联网中小企业研发方案</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cdk8s.github.io/"/>
