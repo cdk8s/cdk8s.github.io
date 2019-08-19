@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cdk8s.github.io/2019/08/19/2019/cdk8s-introduce/</loc>
+    
+    <lastmod>2019-08-19T07:25:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://cdk8s.github.io/2019/08/19/2019/markdown-edit/</loc>
     
     <lastmod>2019-08-19T00:10:01.000Z</lastmod>
