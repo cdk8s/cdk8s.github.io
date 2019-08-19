@@ -50,6 +50,10 @@
     - 我只能做到：该公众号，不转载文章，也不会因为一个小知识点发推送
     - 如果有推送，必然是：`新版本程序发布、新系列专题出炉`
     - 我们不会、也不能去骚扰大家，所以恳请大家留个置顶的位置
+
+![公众号二维码](http://img.gitnavi.com/markdown/cdk8s_qr_300px.png)
+
+
 - 其他平台（会稍晚几天）
     - 掘金：<https://juejin.im/user/5d4aa5c8f265da03a31d21e1>
     - 知乎专栏：<https://zhuanlan.zhihu.com/cdk8s>
@@ -63,7 +67,6 @@
     - 腾讯云社区：<https://cloud.tencent.com/developer/column/2618>
 
 
-![公众号二维码](http://img.gitnavi.com/markdown/cdk8s_qr_300px.png)
 
 ## 暂定专题
 
