@@ -45,6 +45,9 @@
 - Github：<https://github.com/cdk8s>
 - Gitee：<https://gitee.com/cdk8s>
 - 官网博客：<https://cdk8s.github.io>
+- [开发者头条](https://toutiao.io/subjects/417320)
+- [开源中国](https://my.oschina.net/u/4176465)
+- [掘金](https://juejin.im/user/5d4aa5c8f265da03a31d21e1)
 - 微信公众号：`cd-k8s`
     - 我其实很不想用公众号打搅大家的生活，只是 RSS 和邮箱订阅基本退场，我也很无奈
     - 我只能做到：该公众号，不转载文章，也不会因为一个小知识点发推送
@@ -53,18 +56,14 @@
 
 ![公众号二维码](http://img.gitnavi.com/markdown/cdk8s_qr_300px.png)
 
-
-- 其他平台（会稍晚几天）
-    - 掘金：<https://juejin.im/user/5d4aa5c8f265da03a31d21e1>
-    - 知乎专栏：<https://zhuanlan.zhihu.com/cdk8s>
-    - 博客园：<https://www.cnblogs.com/cdk8s/>
-    - SegmentFault：<https://segmentfault.com/u/cdk8s>
-    - CSDN：<https://blog.csdn.net/cdk8s>
-    - 开发者头条：<https://toutiao.io/subjects/417320>
-    - 开源中国：<https://my.oschina.net/u/4176465>
-    - 简书：<https://www.jianshu.com/u/e931fe47ba7e>
-    - 云栖社区：<https://yq.aliyun.com/u/cicdk8s>
-    - 腾讯云社区：<https://cloud.tencent.com/developer/column/2618>
+- 其他平台（会稍晚一些）
+    - [知乎专栏](https://zhuanlan.zhihu.com/cdk8s)
+    - [博客园](https://www.cnblogs.com/cdk8s/)
+    - [SegmentFault](https://segmentfault.com/u/cdk8s)
+    - [CSDN](https://blog.csdn.net/cdk8s)
+    - [简书](https://www.jianshu.com/u/e931fe47ba7e)
+    - [云栖社区](https://yq.aliyun.com/u/cicdk8s)
+    - [腾讯云社区](https://cloud.tencent.com/developer/column/2618)
 
 
 
