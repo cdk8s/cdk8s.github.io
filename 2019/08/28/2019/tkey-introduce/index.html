@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="TKey SSO 单点登录系统介绍"><meta name="keywords" content="CDK8S,SSO,TKey"><meta name="author" content="CDK8S,cdk8s@qq.com"><meta name="copyright" content="CDK8S"><title>TKey SSO 单点登录系统介绍 | CDK8S</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">2.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Live-Demo"><span class="toc-number">3.</span> <span class="toc-text">Live Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture"><span class="toc-number">4.</span> <span class="toc-text">Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preview（Gif）"><span class="toc-number">5.</span> <span class="toc-text">Preview（Gif）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">6.</span> <span class="toc-text">Quick Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Documentation"><span class="toc-number">7.</span> <span class="toc-text">Documentation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TKey-Client"><span class="toc-number">8.</span> <span class="toc-text">TKey Client</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Share"><span class="toc-number">9.</span> <span class="toc-text">Share</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Roadmap"><span class="toc-number">10.</span> <span class="toc-text">Roadmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Changelog"><span class="toc-number">11.</span> <span class="toc-text">Changelog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Issues"><span class="toc-number">12.</span> <span class="toc-text">Issues</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contributors"><span class="toc-number">13.</span> <span class="toc-text">Contributors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adopters"><span class="toc-number">14.</span> <span class="toc-text">Adopters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sponsors"><span class="toc-number">15.</span> <span class="toc-text">Sponsors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backer"><span class="toc-number">16.</span> <span class="toc-text">Backer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Join"><span class="toc-number">17.</span> <span class="toc-text">Join</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jobs"><span class="toc-number">18.</span> <span class="toc-text">Jobs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">19.</span> <span class="toc-text">Thanks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copyright-And-License"><span class="toc-number">20.</span> <span class="toc-text">Copyright And License</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">CDK8S</div><div class="author-info__description text-center">一切为了如何快速提效中小企业发展</div><div class="follow-button"><a href="https://github.com/cdk8s">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">4</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">5</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">CDK8S</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">TKey SSO 单点登录系统介绍</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-28</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CDK8S/">CDK8S</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CDK8S/SSO/">SSO</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CDK8S/SSO/TKey/">TKey</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">1k</span><span class="post-meta__separator">|</span><span>Reading time: 3 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li><strong>TKey = Token Key</strong> 以 OAuth 2.0 标准为接口设计原则的单点登录系统（SSO）</li>
+<li><strong>初衷：</strong> 做国内各种登录场景的配件，以完善的学习资料为主核心竞争力</li>
+<li>纯粹的 HTTP，任意设备、任意场景</li>
+<li>跨域无状态，随意横向扩展，服务高可用</li>
+<li>Spring Boot 2.1.x 技术栈，没有封装，有一点点基础即刻魔改（MIT License）</li>
+<li>从开发、测试、部署、监控、前后端分离的材料都已具备</li>
+<li><strong>最后：没有哪个框架、系统可以套用在任意用户、任意场景、任意需求上，希望对你有思路帮助</strong></li>
+</ul>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>Github：<a href="https://github.com/cdk8s/tkey" target="_blank" rel="noopener">https://github.com/cdk8s/tkey</a></li>
+<li>Gitee：<a href="https://gitee.com/cdk8s/tkey" target="_blank" rel="noopener">https://gitee.com/cdk8s/tkey</a></li>
+</ul>
+<h2 id="Live-Demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h2><p><img src="http://img.gitnavi.com/tkey/tkey-sso-login.gif" alt="登陆完整过程"></p>
+<ul>
+<li><strong>注意：带宽只有 1M，访问会慢</strong> </li>
+<li>本地添加下面 hosts 才能正常访问</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">182.61.44.40 sso.cdk8s.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>访问地址：<a href="http://sso.cdk8s.com/tkey-sso-client-management-frontend/TKeyClient" target="_blank" rel="noopener">TKey SSO Client Management</a></li>
+</ul>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p><img src="http://img.gitnavi.com/tkey/tkey-sso-architecture.jpg" alt="架构图"></p>
+<ul>
+<li>上图的视频讲解稍后会上传到 B 站</li>
+<li>OAuth2.0 授权码模式细节时序图可以查看：<a href="http://img.gitnavi.com/tkey/tkey-oauth.png" target="_blank" rel="noopener">点击我查看</a></li>
+</ul>
+<h2 id="Preview（Gif）"><a href="#Preview（Gif）" class="headerlink" title="Preview（Gif）"></a>Preview（Gif）</h2><ul>
+<li>主图需要右键复制地址，然后粘贴到地址栏才能打开 Orz..</li>
+<li><strong>登录完整过程：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-cd483cefb50eb763.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-sso-login.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>Grafana 监控大屏：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-af9b3d3411db1da1.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/actuator-prometheus-grafana.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>GoAccess 监控大屏：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-b3bcc4edcf0df007.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/goaccess-data.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>Postman 接口调用：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-a8316b794bf4bf56.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/postman-request-api.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>Docker 容器管理：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-281dd6b40f2d7fc7.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/portainer-docker.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>Jenkins 部署流水线：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-2d20e2fba98ddbbd.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-jenkins.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>JProfiler 压测变化：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-922b8202de206b06.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-jprofiler.gif" target="_blank" rel="noopener">备图</a></li>
+<li><strong>VisualVM 压测变化：</strong> <a href="https://upload-images.jianshu.io/upload_images/19119711-067bcdf1a6e95b44.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-visualvm.gif" target="_blank" rel="noopener">备图</a></li>
+</ul>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><ul>
+<li>单元测试：<a href="https://upload-images.jianshu.io/upload_images/19119711-6bc18bb5b1063911.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-junit-test.gif" target="_blank" rel="noopener">备图</a></li>
+<li>TKey SSO Server JAR 方式部署过程：<a href="https://upload-images.jianshu.io/upload_images/19119711-72e375355e3df651.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-runapp-jar.gif" target="_blank" rel="noopener">备图</a></li>
+<li>TKey SSO Server Docker Compose：<a href="https://upload-images.jianshu.io/upload_images/19119711-10011adf8a15e049.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-sso-server-docker-compose.gif" target="_blank" rel="noopener">备图</a></li>
+<li>TKey SSO Client Management Docker Compose：<a href="https://upload-images.jianshu.io/upload_images/19119711-8edd4a914ed4540a.gif" target="_blank" rel="noopener">主图</a>、<a href="http://img.gitnavi.com/tkey/tkey-sso-client-management-docker-compose.gif" target="_blank" rel="noopener">备图</a></li>
+<li>项目完全依赖 Lombok（推荐），如果没有用过可以参考 <a href="https://github.com/cdk8s/cdk8s-team-style/blob/master/dev/backend/java/java-lombok.md" target="_blank" rel="noopener">该篇文章</a></li>
+<li>项目最优搭配 IntelliJ IDEA，如果还没用过可以参考 <a href="https://github.com/judasn/IntelliJ-IDEA-Tutorial" target="_blank" rel="noopener">该系列文章（我们的作品）</a></li>
+<li>由于项目刚开源出来，Maven 官方库还在申请，自己封装的 TKey SSO Client Java 还在审核，目前大家先本地 package install</li>
+</ul>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><ul>
+<li>我们统一了 TKey 项目的所有文档，方便大家查看<ul>
+<li>Github：<a href="https://github.com/cdk8s/tkey-docs" target="_blank" rel="noopener">https://github.com/cdk8s/tkey-docs</a></li>
+<li>Gitee：<a href="https://gitee.com/cdk8s/tkey-docs" target="_blank" rel="noopener">https://gitee.com/cdk8s/tkey-docs</a></li>
+<li>Gitbook：<a href="https://160668873.gitbook.io/tkey-docs/" target="_blank" rel="noopener">https://160668873.gitbook.io/tkey-docs/</a></li>
+</ul>
+</li>
+<li><strong>认识阶段 （必读）</strong><ul>
+<li>单点登录系统认知与基础介绍：<a href="https://github.com/cdk8s/tkey-docs/blob/master/other/tkey-baisc.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/other/tkey-baisc.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>故意设计点（常见问题）：<a href="https://github.com/cdk8s/tkey-docs/blob/master/faq/README.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/faq/README.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>项目结构与端口占用：<a href="https://github.com/cdk8s/tkey-docs/blob/master/other/project-structure.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/other/project-structure.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>OAuth2.0 四种模式：<a href="https://github.com/cdk8s/tkey-docs/blob/master/server/oauth-grant-type/README.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/server/oauth-grant-type/README.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>JAR 方式部署：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/jar-runapp.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/jar-runapp.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>Docker 方式部署：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/docker-runapp.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/docker-runapp.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>Docker Compose 方式部署：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/docker-compose-runapp.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/docker-compose-runapp.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>TKey Server 开发阶段<ul>
+<li>开发改造引导：<a href="https://github.com/cdk8s/tkey-docs/blob/master/server/dev.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/server/dev.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>TKey Management 开发阶段（也是前后端分离的最佳实践示例）<ul>
+<li>后端开发改造引导：<a href="https://github.com/cdk8s/tkey-docs/blob/master/management/dev-backend.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/management/dev-backend.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>前端开发改造引导：<a href="https://github.com/cdk8s/tkey-docs/blob/master/management/dev-frontend.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/management/dev-frontend.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>TKey Client Java 开发阶段<ul>
+<li>自己封装的 REST Client：<a href="https://github.com/cdk8s/tkey-docs/blob/master/client/dev-rest-client.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/client/dev-rest-client.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>Spring Security 支持：<a href="https://github.com/cdk8s/tkey-docs/blob/master/client/dev-spring-security-client.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/client/dev-spring-security-client.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>测试阶段<ul>
+<li>单元测试：<a href="https://github.com/cdk8s/tkey/blob/master/src/test/java/com/cdk8s/tkey/server/controller/AuthorizationCodeByFormTest.java" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey/blob/master/src/test/java/com/cdk8s/tkey/server/controller/AuthorizationCodeByFormTest.java" target="_blank" rel="noopener">Gitee</a></li>
+<li>压力测试：<a href="https://github.com/cdk8s/tkey-docs/blob/master/test/performance.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/test/performance.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>部署阶段<ul>
+<li>生产注意事项：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/production-environment.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/production-environment.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>部署环境搭建：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/deployment-core.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/deployment-core.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+<li>监控阶段<ul>
+<li>Spring Boot Micrometer：<a href="https://github.com/cdk8s/tkey-docs/blob/master/deployment/micrometer.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/deployment/micrometer.md" target="_blank" rel="noopener">Gitee</a></li>
+<li>其他工具全在 <code>部署环境搭建</code>，请自行查看</li>
+</ul>
+</li>
+<li>线上问题诊断<ul>
+<li><a href="http://img.gitnavi.com/tkey/actuator-update-log-level.gif" target="_blank" rel="noopener">Actuator 在线修改 log 输出级别（Gif 动图）</a></li>
+<li><a href="https://alibaba.github.io/arthas/docker.html#dockerjava" target="_blank" rel="noopener">Arthas 诊断 Docker 应用</a></li>
+<li>夜间开放端口，挑选流量远程 Debug：<a href="https://github.com/cdk8s/tkey-docs/blob/master/server/remote-debug.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/server/remote-debug.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="TKey-Client"><a href="#TKey-Client" class="headerlink" title="TKey Client"></a>TKey Client</h2><ul>
+<li>Java 前后端分离最佳实践<ul>
+<li>TKey SSO Client Management Backend：<a href="https://github.com/cdk8s/tkey-management" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-management" target="_blank" rel="noopener">Gitee</a></li>
+<li>TKey SSO Client Management Frontend：<a href="https://github.com/cdk8s/tkey-management-frontend" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-management" target="_blank" rel="noopener">Gitee</a></li>
+<li>Angular、Vue 的前后端分离版本会在稍后几周发出来</li>
+</ul>
+</li>
+<li>Java REST API 客户端：<a href="https://github.com/cdk8s/tkey-client-java" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-client-java" target="_blank" rel="noopener">Gitee</a></li>
+<li>Java Spring Security 客户端：<a href="https://github.com/cdk8s/tkey-client-java-spring-security" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-client-java-spring-security" target="_blank" rel="noopener">Gitee</a></li>
+<li>C#（暂缺）</li>
+<li>GO（暂缺）</li>
+<li>PHP（暂缺）</li>
+<li>Python（暂缺）</li>
+<li>Ruby（暂缺）</li>
+<li>Node.js（暂缺）</li>
+</ul>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><ul>
+<li>Grafana Dashboard：<a href="https://github.com/cdk8s/tkey-docs/blob/master/share-file/grafana/dashboard.json" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/share-file/grafana/dashboard.json" target="_blank" rel="noopener">Gitee</a></li>
+<li>Postman API：<a href="https://github.com/cdk8s/tkey-docs/blob/master/share-file/postman/tkey-sso-server-api_collection_2.1_format.json" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/share-file/postman/tkey-sso-server-api_collection_2.1_format.json" target="_blank" rel="noopener">Gitee</a></li>
+<li>Run JAR Shell：<a href="https://github.com/cdk8s/tkey-docs/blob/master/share-file/shell/runapp.sh" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/share-file/shell/runapp.sh" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h2 id="Roadmap"><a href="#Roadmap" class="headerlink" title="Roadmap"></a>Roadmap</h2><ul>
+<li>规划版本：<a href="https://github.com/cdk8s/tkey-docs/blob/master/roadmap/README.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/roadmap/README.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h2 id="Changelog"><a href="#Changelog" class="headerlink" title="Changelog"></a>Changelog</h2><ul>
+<li>版本更新：<a href="https://github.com/cdk8s/tkey-docs/blob/master/changelog/README.md" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-docs/blob/master/changelog/README.md" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h2 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h2><ul>
+<li>目前只开放了一个 issues 入口，集中问题，可以方便大家检索。</li>
+<li>去提问：<a href="https://github.com/cdk8s/tkey-issues" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-issues" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h2 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h2><ul>
+<li>暂无</li>
+<li>欢迎 pull request</li>
+</ul>
+<h2 id="Adopters"><a href="#Adopters" class="headerlink" title="Adopters"></a>Adopters</h2><ul>
+<li>去申请：<a href="https://github.com/cdk8s/tkey-issues/issues/1" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/cdk8s/tkey-issues/issues/1" target="_blank" rel="noopener">Gitee</a></li>
+</ul>
+<h2 id="Sponsors"><a href="#Sponsors" class="headerlink" title="Sponsors"></a>Sponsors</h2><ul>
+<li>暂无</li>
+</ul>
+<h2 id="Backer"><a href="#Backer" class="headerlink" title="Backer"></a>Backer</h2><ul>
+<li><a href="http://www.youmeek.com/donate/" target="_blank" rel="noopener">我要喝喜茶 Orz..</a></li>
+</ul>
+<h2 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h2><ul>
+<li>邮箱：<code>cdk8s#qq.com</code></li>
+<li>博客：<a href="https://cdk8s.github.io/">https://cdk8s.github.io/</a></li>
+<li>Github：<a href="https://github.com/cdk8s" target="_blank" rel="noopener">https://github.com/cdk8s</a></li>
+<li>Gitee：<a href="https://gitee.com/cdk8s" target="_blank" rel="noopener">https://gitee.com/cdk8s</a></li>
+<li>公众号</li>
+</ul>
+<p><img src="http://img.gitnavi.com/markdown/cdk8s_qr_300px.png" alt="公众号"></p>
+<h2 id="Jobs"><a href="#Jobs" class="headerlink" title="Jobs"></a>Jobs</h2><ul>
+<li>我们在广州</li>
+<li>有广州或深圳的合作、Offer 欢迎联系我们</li>
+<li>邮箱：<code>cdk8s#qq.com</code></li>
+<li>公众号：<code>联系我们</code></li>
+</ul>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><ul>
+<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">IntelliJ IDEA</a></li>
+<li><a href="https://github.com/apereo/cas" target="_blank" rel="noopener">CAS</a></li>
+<li><a href="https://www.okta.com/" target="_blank" rel="noopener">Okta</a></li>
+</ul>
+<h2 id="Copyright-And-License"><a href="#Copyright-And-License" class="headerlink" title="Copyright And License"></a>Copyright And License</h2><ul>
+<li>Copyright (c) CDK8S. All rights reserved.</li>
+<li>Licensed under the <strong>MIT</strong> license.</li>
+<li><strong>再次强调： 因为是 MIT 协议，大家有不满意的，除了 PR 也可以 fork 后自己尽情改造!</strong></li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:cdk8s@qq.com">CDK8S</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://cdk8s.github.io/2019/08/28/2019/tkey-introduce/">https://cdk8s.github.io/2019/08/28/2019/tkey-introduce/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CDK8S/">CDK8S</a><a class="post-meta__tags" href="/tags/SSO/">SSO</a><a class="post-meta__tags" href="/tags/TKey/">TKey</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2019/08/20/2019/cdk8s-team-style/"><span>CDK8S 研发团队风格</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '866d938f5595745380ce',
+  clientSecret: 'ff1e6fa5cb3415160f96002a74045bd5642c6e28',
+  repo: 'cdk8s.github.io',
+  owner: 'cdk8s',
+  admin: 'cdk8s-zelda',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By CDK8S</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
